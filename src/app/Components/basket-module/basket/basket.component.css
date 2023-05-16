@@ -1,0 +1,27 @@
+*{
+  padding: 0 px;
+  margin: 0 px;
+  box-sizing: border-box;
+}
+.clik{
+  cursor: pointer;
+}
+
+img{
+  width: 100%;
+  height: 20vh;
+}
+
+
+body{
+  background-color: #EAEDED;
+}
+.cart{
+  background-color: #FFFFFF;
+}
+hr.style2 {
+	border-top: 1px solid #000000;
+}
+hr.style1 {
+	border-top: 3px solid #000000;
+}

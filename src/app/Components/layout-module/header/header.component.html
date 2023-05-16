@@ -1,0 +1,456 @@
+
+
+<header>
+  <!-- //desktoop// -->
+  <nav id="navcolo" class="navbar p-1 d-none d-md-flex d-lg-flex justify-content-between">
+
+
+
+    <div class="d-flex  ">
+
+    <div class="mt-2">
+  <a href="#" class="">
+        <img  src="assets/LOGO2.png" class="img-fluid" />
+      </a>
+</div>
+
+      <div>
+        <i class="fa-solid fa-location-dot hoba mt-4 mx-2"></i>
+      </div>
+
+      <div class="d-flex flex-column hovee">
+        <span class="fw-light nv1"  >{{'Deleiver to'|translate}}</span>
+        <span class="fs-6 fw-bold">{{'location'|translate}}</span>
+      </div>
+      <form class="container-fluid">
+        <div class="input-group p-1 mx-2">
+          <span class="btn-group">
+            <button
+              type="button"
+              class="btn buto1 dropdown-toggle"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+              id="bo"
+            >
+              {{'All'|translate}}
+            </button>
+            <!-- selceto to made scroll for drop down menu -->
+            <select class="dropdown-menu" size="10">
+              <option class="ss">
+                <a class="dropdown-item" href="#">{{'All Categories'|translate}}</a>
+              </option>
+              <option>
+                <a class="dropdown-item" href="#">{{'Amazon Devices'|translate}}</a>
+              </option>
+              <option>
+                <a class="dropdown-item" href="#">{{'Amazon Fashino'|translate}}</a>
+              </option>
+              <option><a class="dropdown-item" href="#">{{'Amazon Baby'|translate}}</a></option>
+              <option>
+                <a class="dropdown-item" href="#">{{'Amazon Warehouse'|translate}}</a>
+              </option>
+              <option>
+                <a class="dropdown-item" href="#"
+                  >{{'Automotive Parts & Accessories'|translate}}</a
+                >
+              </option>
+              <option>
+                <a class="dropdown-item" href="#">{{'Grocery & Gourmet Food'|translate}}</a>
+              </option>
+              <option>
+                <a class="dropdown-item" href="#">{{'Industrial & Scientific'|translate}}</a>
+              </option>
+              <option>
+                <a class="dropdown-item" href="#">{{'Musical Instruments'|translate}}</a>
+              </option>
+              <option>
+                <a class="dropdown-item" href="#">{{'Home Related'|translate}}</a>
+              </option>
+              <option>
+                <a class="dropdown-item" href="#">{{'Grocery & Gourmet Food'|translate}}</a>
+              </option>
+              <option>
+                <a class="dropdown-item" href="#">{{'Beauty & Personal Care'|translate}}</a>
+              </option>
+              <option>
+                <a class="dropdown-item" href="#">{{'Arts, Crafts & Sewing'|translate}}</a>
+              </option>
+              <option><a class="dropdown-item" href="#">{{'Sports'|translate}}</a></option>
+            </select>
+          </span>
+          <input
+            id="Search-input"
+            type="text"
+            class="form-control"
+            size="100"
+            placeholder="{{'Search'|translate}}"
+            aria-label="Search Amazon.eg"
+            aria-describedby="basic-addon1"
+          />
+          <span>
+            <button class="d-flex btn btn-warning bouto2 mx--5">
+              <a id="ancorsearch" href="#Search-input"
+                ><i
+                  style="color: black"
+                  class="fa-solid fa-magnifying-glass"
+                ></i
+              ></a>
+            </button>
+          </span>
+          <!-- hover of drop down menue -->
+
+        </div>
+      </form>
+      <div class="d-flex  ">
+
+<div class=" dropdown mx-4 mt-3 d-flex">
+            <span><img src="assets/Eg.png" class="img-ico" /></span>
+            <span class="dropdown-toggle fw-bold ">EN</span>
+            <span class="caret"></span>
+            <ul class="dropdown-menu ">
+              <li class="px-2" >
+                <a (click)="switchToArabic()">
+                  <input
+                  type="radio"
+                  id="html"
+                  name="fav_language"
+                  value="HTML"
+                />
+                <label for="html">العربية-AR</label><br />
+                </a>
+              </li>
+              <hr />
+              <li class="px-2" >
+                <a (click)="switchToEnglish()">
+                  <input
+                  type="radio"
+                  id="html1"
+                  name="fav_language"
+                  value="HTML"
+                />
+                <label for="html1">English-EN</label><br />
+                </a>
+              </li>
+              <hr />
+              <li class="px-2">
+                <span
+                  ><img src="assets/Eg.png" class="img-ico" />
+                  <span
+                    ><p style="font-size: 11px">
+                      you are shopping on Amazon.eg
+                    </p></span
+                  >
+                </span>
+              </li>
+            </ul>
+          </div>
+
+
+      </div>
+
+
+      <div class="d-flex hovee">
+
+<ng-container  *ngIf="(userinfo |async )==null">
+  <div class="d-flex flex-column  " >
+     <div class="fw-light fw-bold nv1  " >{{'wellcom,to'|translate}}</div>
+  <div class="fw-light fw-bold nv1 " >{{'Amazon'|translate}}</div>
+  </div>
+</ng-container>
+<ng-container *ngIf="(userinfo |async) as user">
+  <div class="d-flex flex-column align-items-center  ">
+ <div class="fw-light fw-bold nv1 mt-2  " >{{'Hello'|translate}}, </div>
+<div class="fw-light fw-bold nv1 " >{{user.username}}</div>
+  </div>
+
+</ng-container>
+<!-- <div *ngIf="(userinfo |async) as user">
+  {{user}}
+</div> -->
+        <!-- <div class="fw-bold" style="font-size: 12px">Account & Lists
+        </div> -->
+      </div>
+
+      <div class="mx-4 mt-4">
+        <a href="#" class="fw-bold text-decoration-none">{{'Orders'|translate}}</a>
+      </div>
+
+      <div class="" >
+        <a routerLink="/basket" class="text-decoration-none">
+          <ng-container *ngIf="(basketinfo |async) as basket">
+             <span class="fw-bold ms-2 text-warning">{{getcount(basket.items)}}</span>
+        <i style="font-size: 25px" class="fa-solid fa-cart-shopping"></i>
+          </ng-container>
+          <ng-container *ngIf="(basketinfo |async) == null">
+            <span class="fw-bold ms-2 text-warning">0</span>
+       <i style="font-size: 25px" class="fa-solid fa-cart-shopping"></i>
+         </ng-container>
+
+
+        </a>
+
+      </div>
+    </div>
+  </nav>
+  <!-- mobile -->
+  <nav id="navcolo" class="p-1 d-md-none d-lg-none">
+    <div class="d-flex justify-content-between">
+      <div>
+        <a href="#" class="hovee m">
+          <img id="" src="assets/LOGO2.png" class="img-fluid" alt="" />
+        </a>
+      </div>
+
+      <!-- <div class="d-flex flex-column hovee" style="margin-left: -13vw;" >
+              <span class="fw-light nv1">Deleiver to</span>
+              <span class="fs-6 fw-bold ">location</span>
+              </div> -->
+      <div class="d-flex">
+        <div class="mt-3">
+          <i style="font-size: 25px" class="fa-solid fa-cart-shopping"></i>
+        </div>
+        <div class="mx-2 mt-3">
+          <a class="">
+            <a
+              href="#"
+              class="text-decoration-none fw-bold"
+              data-bs-toggle="offcanvas"
+              data-bs-target="#offcanvasScrolling"
+              aria-controls="offcanvasScrolling"
+              ><i class="fa-solid fa-bars px-1"></i>{{'All'|translate}}</a
+            >
+            <div
+              class="offcanvas offcanvas-start"
+              data-bs-scroll="true"
+              data-bs-backdrop="false"
+              tabindex="-1"
+              id="offcanvasScrolling"
+              aria-labelledby="offcanvasScrollingLabel"
+            >
+              <div class="offcanvas-header" style="background-color: #304053">
+                <h5 class="offcanvas-title" id="offcanvasScrollingLabel">
+                  {{'Amazon'|translate}}
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="offcanvas-body">
+                <ul class="d-flex flex-column">
+                  <li class="">
+                    <a href="#" class="text-decoration-none text-dark">{{'Home'|translate}}</a>
+                  </li>
+
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >Amazon.eg</a
+                    >
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >Perfumes</a
+                    >
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark">Help</a>
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >Toys & Games</a
+                    >
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >Mobile Phones</a
+                    >
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >Fashion</a
+                    >
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >Grocery</a
+                    >
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >Appliances</a
+                    >
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >Mobile Phones</a
+                    >
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <form class="container-fluid">
+      <div class="input-group p-1 mx-2">
+        <input
+          id="Search-input"
+          type="text"
+          class="form-control"
+          size="100"
+          placeholder="{{'Search'|translate}}Search Amazon.eg"
+          aria-label="Search Amazon.eg"
+          aria-describedby="basic-addon1"
+        />
+        <span>
+          <button class="d-flex btn btn-warning bouto2 mx--5">
+            <a id="ancorsearch" href="#Search-input"
+              ><i style="color: black" class="fa-solid fa-magnifying-glass"></i
+            ></a>
+          </button>
+        </span>
+      </div>
+    </form>
+  </nav>
+  <!-- nav2 -->
+  <!-- desktop -->
+  <nav class="navigator d-none d-md-none d-lg-block d-xl-block d-xxl-block">
+    <div>
+      <ul class="d-flex align-items-center justify-content-evenly">
+        <li class="mx-">
+          <a
+            href="#"
+            class="text-decoration-none"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#staticBackdrop"
+            aria-controls="staticBackdrop"
+          >
+            <i class="fa-solid fa-bars px-1"></i>{{'All'|translate}}
+          </a>
+
+          <div
+            class="offcanvas offcanvas-start"
+            data-bs-backdrop="static"
+            tabindex="-1"
+            id="staticBackdrop"
+            aria-labelledby="staticBackdropLabel"
+          >
+            <div class="offcanvas-header" style="background-color: #232f3e">
+              <h5
+                class="offcanvas-title"
+                id="staticBackdropLabel"
+                style="color: aliceblue"
+              >
+                {{'Amazon'|translate}}
+              </h5>
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="offcanvas"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="offcanvas-body">
+              <div>
+                <ul class="d-flex flex-column">
+                  <!-- <li class="">
+                    <a href="#" class="text-decoration-none text-dark" *ngIf="user.CurrentUser$ |async as user">hello{{user.username}}</a>
+                  </li> -->
+
+                  <li class="mx-">
+                    <a routerLink="/user/sign-up" class="text-decoration-none text-dark"
+                      >{{'sign Up'|translate}}</a
+                    >
+                  </li>
+
+                  <li class="mx-">
+                    <a routerLink="/user/Login" class="text-decoration-none text-dark"
+                      >{{'Login'|translate}}</a
+                    >
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark">{{'Help'|translate}}</a>
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >{{'Toys & Games'|translate}}</a
+                    >
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >{{'Mobile Phones'|translate}}</a
+                    >
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >{{'Fashion'|translate}}</a
+                    >
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >{{'Grocery'|translate}}</a
+                    >
+                  </li>
+                  <li class="mx-">
+                    <a href="#" class="text-decoration-none text-dark"
+                      >{{'Appliances'|translate}}</a
+                    >
+                  </li>
+                  <li class="mx-" >
+                    <a (click)="Logout()"  class="text-decoration-none text-dark" routerLink="/user/Login"
+                      >{{'Sign Out'|translate}}</a
+                    >
+                  </li>
+                </ul>
+                .
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="mx-">
+          <a href="#" class="text-decoration-none">{{'Ramadan Deals'|translate}}</a>
+        </li>
+        <li class="mx-">
+          <a href="#" class="text-decoration-none"></a>
+          <div class="dropdown">
+            <span class="dropdown-toggle fw-bold">{{'Prime'|translate}}</span>
+            <ul class="dropdown-menu">
+              <li class="px-2">
+                <img src="assets/pimepic.png" alt="" />
+              </li>
+            </ul>
+          </div>
+        </li>
+
+        <li class="mx-">
+          <a href="/Home" class="text-decoration-none">{{'Home'|translate}}</a>
+        </li>
+
+        <li class="mx-">
+          <a routerLink="/Products" class="text-decoration-none">{{'Products'|translate}}</a>
+        </li>
+        <li class="mx-">
+          <a href="/aboutus" class="text-decoration-none">{{'AboutUs'|translate}}</a>
+        </li>
+        <li class="mx-">
+          <a href="/contactus" class="text-decoration-none">{{'ContactUs'|translate}}</a>
+        </li>
+
+        <li class="">
+          <img id="" class="img-fluid" src="assets/nav-img.jpg" alt="" />
+        </li>
+      </ul>
+    </div>
+
+    <!-- <div class="d-flex align-items-center ">
+
+        <a href="#"><i class="fa-solid fa-bars mx-1 "></i>All</a>
+      </div> -->
+  </nav>
+  <!-- mobile -->
+
+</header>
